@@ -1,30 +1,28 @@
-type nodeOrNull = ListNode | null
-
-interface ILinkedList {
-	head: nodeOrNull
-	tail: nodeOrNull
+interface ILinkedList<Type> {
+	head: ListNode<Type> | null
+	tail: ListNode<Type> | null
 	size: Number
 
-	getHead(): nodeOrNull
-	getTail(): nodeOrNull
-	append(value: any): ListNode
-	delete(value: any): boolean
-	find(value: any): nodeOrNull
-	toArray(): any[]
-	shift(value: any): ListNode
+	getHead(): ListNode<Type> | null
+	getTail(): ListNode<Type> | null
+	append(value: Type): ListNode<Type>
+	delete(value: Type): boolean
+	find(value: Type): ListNode<Type> | null
+	toArray(): Type[]
+	shift(value: Type): ListNode<Type>
 	isEmpty(): boolean
 	clear(): boolean
 	printInfo(): void
 }
 
-interface IListNode {
-	nextNode: nodeOrNull
-	value: any
+interface IListNode<Type> {
+	nextNode: ListNode<Type> | null
+	value: Type
 }
 
-class LinkedList implements ILinkedList {
-	public tail: nodeOrNull
-	public head: nodeOrNull
+class LinkedList<Type> implements ILinkedList<Type> {
+	public tail: ListNode<Type> | null
+	public head: ListNode<Type> | null
 
 	public size: number = 0
 
@@ -33,15 +31,15 @@ class LinkedList implements ILinkedList {
 		this.tail = this.head
 	}
 
-	getHead(): nodeOrNull {
+	getHead(): ListNode<Type> | null {
 		return this.head
 	}
 
-	getTail(): nodeOrNull {
+	getTail(): ListNode<Type> | null {
 		return this.tail
 	}
 
-	append(value: any): ListNode {
+	append(value: Type): ListNode<Type> {
 		const newListNode = new ListNode(value)
 
 		if (this.isEmpty()) {
@@ -57,7 +55,7 @@ class LinkedList implements ILinkedList {
 		return this.tail
 	}
 
-	delete(value: any): boolean {
+	delete(value: Type): boolean {
 		let currentNode = this.head
 		let prevNode = currentNode
 
@@ -85,7 +83,7 @@ class LinkedList implements ILinkedList {
 		return false
 	}
 
-	find(value: any): nodeOrNull {
+	find(value: Type): ListNode<Type> | null {
 		let currentNode = this.head
 
 		while (currentNode) {
@@ -99,8 +97,8 @@ class LinkedList implements ILinkedList {
 		return null
 	}
 
-	toArray(): any[] {
-		const linkedListItems: any[] = []
+	toArray(): Array<Type> {
+		const linkedListItems: Array<Type> = []
 		let currentNode = this.head
 
 		while (currentNode) {
@@ -111,7 +109,7 @@ class LinkedList implements ILinkedList {
 		return linkedListItems
 	}
 
-	shift(value: any): ListNode {
+	shift(value: Type): ListNode<Type> {
 		const newListNode = new ListNode(value)
 		const isEmpty = this.head ? false : true
 
@@ -158,10 +156,10 @@ class LinkedList implements ILinkedList {
 	}
 }
 
-class ListNode implements IListNode {
-	public nextNode: nodeOrNull = null
+class ListNode<Type> implements IListNode<Type> {
+	public nextNode: ListNode<Type> | null = null
 
-	constructor(public value: any) {}
+	constructor(public value: Type) {}
 }
 
 /*
