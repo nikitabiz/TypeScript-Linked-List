@@ -1,4 +1,4 @@
-# Implementation of Linked list in TypeScript
+# Static/dynamic typed Linked List realization on TypeScript
 
 ### **Methods:**
 
@@ -13,6 +13,8 @@
 
 ### **Usage example**
 
+> Dynamic
+
 ```TS
 const linkedList = new LinkedList()
 
@@ -21,4 +23,15 @@ linkedList.shift("Hello")
 
 linkedList.printInfo()
 linkedList.clear()
+```
+> Static
+
+```TS
+const linkedList = new LinkedList<number>()
+
+linkedList.append(5)
+linkedList.append(10)
+
+linkedList.printInfo()
+linkedList.clear
 ```
