@@ -10,3 +10,15 @@
 *printInfo()* - **Outputs the value of each item in the list**\
 *isEmpty()* - **Checks if the list is empt**
 *clear()* - **Clear the list**
+
+### **Usage example**
+
+```TS
+const linkedList = new LinkedList()
+
+linkedList.append("World!")
+linkedList.shift("Hello")
+
+linkedList.printInfo()
+linkedList.clear()
+```
