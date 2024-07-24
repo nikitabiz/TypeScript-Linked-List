@@ -33,5 +33,5 @@ linkedList.append(5)
 linkedList.append(10)
 
 linkedList.printInfo()
-linkedList.clear
+linkedList.clear()
 ```
